@@ -13,7 +13,9 @@ function configure(passport) {
       done(null, user); //pass along user so it can be saved in session.
     } else {
       console.log('Local strategy -- no user or something...')
-      done(null, false);
+      done(null, false, {
+        message: 'either the username or password was invalid.'
+      });
       }
     })
   }

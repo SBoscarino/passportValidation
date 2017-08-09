@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
+const flash = require('express-flash-messages'); //for errors
+const expressValidator = require('express-validator');
 
 
 
@@ -15,6 +17,8 @@ app.use(express.static('public'));
 
 //handle post bodies
 app.use(bodyParser.urlencoded({ extended : false }));
+app.use(expressValidator());
+
 
 app.use(session({
   secret : 'Gotta Catch Em All!',
@@ -24,6 +28,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash()); //errors
 require('./passportConfig').configure(passport); //export configure function from passport.
 
 const mustache = mustacheExpress();

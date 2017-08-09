@@ -12,7 +12,13 @@
       <input placeholder="password" name="password" type="password"></input>
       <button type="submit">Login</button>
     </form>
-    
+
+    {{#showErrors}}
+    <ul class="errors">
+      {{#errors}}<li>{{.}}</li>{{/errors}}
+    </ul>
+    {{/showErrors}}
+
     <div class='links'>
     <h4><a href='/register'>Register</a></h4>
     <h4><a href='/index'>Index</a></h4>

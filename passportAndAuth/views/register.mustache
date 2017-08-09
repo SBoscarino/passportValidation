@@ -13,6 +13,12 @@
       <button type="submit">Login</button>
     </form>
 
+    {{#showErrors}}
+    <ul class="errors">
+      {{#errors}}<li>{{.}}</li>{{/errors}}
+    </ul>
+    {{/showErrors}}
+    
     <div class="links">
     <h4><a href='/login'>Log in</a></h4>
     <h4><a href='/home'>Go Home</a></h4>
